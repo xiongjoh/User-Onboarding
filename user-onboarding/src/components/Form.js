@@ -17,11 +17,11 @@ export default function Form(props) {
 
   return (
     <form className="container" onSubmit={onSubmit}>
-        <div>
+        <div className="errors">
         <div>{errors.name}</div>
         <div>{errors.email}</div>
-        <div>{errors.role}</div>
-        <div>{errors.civil}</div>
+        <div>{errors.password}</div>
+        <div>{errors.tos}</div>
         </div>
       <label>
         Name:
