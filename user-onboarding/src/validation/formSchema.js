@@ -14,5 +14,5 @@ export default yup.object().shape({
     .required('must have a password set')
     .min(8, "minimum password length must be 8 characters long"),
     tos: yup
-    .boolean().required('Terms of Services must be agreed to'),
+    .boolean().oneOf([true], 'Require Terms of Services to be accepted'),
 })

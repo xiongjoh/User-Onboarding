@@ -36,6 +36,14 @@ const change = (name, value) => {
   setFormValues({...formValues, [name]: value})
 }
 
+useEffect(() => {
+  schema.isValid(formValues)
+  .then(valid => {
+    console.log(valid)
+    setDisabled(!valid)
+  })
+}, [formValues])
+
 const submit = () => {
   const newUser = {
     name: formValues.name.trim(),
@@ -52,7 +60,7 @@ const submit = () => {
       values={formValues}
       change={change}
       submit={submit}
-      disable={disabled}
+      disabled={disabled}
       errors={formErrors}
       />
     </div>

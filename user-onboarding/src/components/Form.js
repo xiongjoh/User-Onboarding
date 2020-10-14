@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Form(props) {
-  const { values, submit, change, disable, error } = props;
+  const { values, submit, change, disabled, errors } = props;
 
   const onChange = (event) => {
     //   debugger
@@ -10,12 +10,19 @@ export default function Form(props) {
       change(name, valueToUse)
   }
 
-  const onSubmit = () => {
-
+  const onSubmit = (event) => {
+      event.preventDefault()
+      submit()
   }
 
   return (
     <form className="container" onSubmit={onSubmit}>
+        <div>
+        <div>{errors.name}</div>
+        <div>{errors.email}</div>
+        <div>{errors.role}</div>
+        <div>{errors.civil}</div>
+        </div>
       <label>
         Name:
         <input 
@@ -56,7 +63,7 @@ export default function Form(props) {
         />
       </label>
       <div>
-          <button disabled={disable}>Submit</button>
+        <button disabled={disabled}>submit</button>
       </div>
     </form>
   );
