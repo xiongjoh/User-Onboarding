@@ -35,6 +35,19 @@
   border-radius: 4%;
   display: flex;
   flex-flow: column nowrap;
+  padding: 5% 0;
+}
+
+.form {
+  align-items: center;
+}
+
+.container label {
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+
 }
 
 .errors {

@@ -16,11 +16,12 @@ export default function Form(props) {
   }
 
   return (
-    <form className="container" onSubmit={onSubmit}>
+    <form className="form container" onSubmit={onSubmit}>
         <div className="errors">
         <div>{errors.name}</div>
         <div>{errors.email}</div>
         <div>{errors.password}</div>
+        <div>{errors.role}</div>
         <div>{errors.tos}</div>
         </div>
       <label>
@@ -53,8 +54,22 @@ export default function Form(props) {
         />
       </label>
 
+      <label>Role: 
+          <select
+          onChange={onChange}
+          value={values.role}
+          name='role'
+          >
+              <option value="">--Select Role--</option>
+              <option value="student">Student</option>
+              <option value="tl">Team Lead</option>
+              <option value="instructor">Instructor</option>
+              <option value="alumni">Alumni</option>
+          </select>
+      </label>
+
       <label>
-        Terms Of Service
+        Agree to Terms of Service
         <input 
         type="checkbox"
         name="tos"

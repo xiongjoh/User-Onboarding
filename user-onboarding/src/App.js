@@ -10,12 +10,14 @@ const initialFormValues = {
   name: '',
   email: '',
   password: '',
+  role:'',
   tos: false,
 }
 
 const initialFormErrors = {
   name:'',
   email:'',
+  role:'',
   password:'',
 }
 
@@ -29,6 +31,7 @@ const [formValues, setFormValues] = useState(initialFormValues)
 const [formErrors, setFormErrors] = useState(initialFormErrors)
 const [disabled, setDisabled] = useState(initialDisabled)
 
+// helper function to post newUser and set userArray for display
 const postUser = (newUser) => {
   axios.post(`https://reqres.in/api/users`, newUser)
   .then(res => {
@@ -42,7 +45,6 @@ const postUser = (newUser) => {
 }
 
 const change = (name, value) => {
-
   yup.reach(schema, name).validate(value)
   .then(() => {
     setFormErrors({...formErrors,[name]:''})
@@ -67,6 +69,7 @@ const submit = () => {
   const newUser = {
     name: formValues.name.trim(),
     email: formValues.email.trim(),
+    role: formValues.role.trim(),
     password: formValues.password.trim(),
   }
 
