@@ -22,6 +22,7 @@ export default function Form(props) {
         <div>{errors.email}</div>
         <div>{errors.password}</div>
         <div>{errors.role}</div>
+        <div>{errors.workstatus}</div>
         <div>{errors.tos}</div>
         </div>
       <label>
@@ -69,10 +70,22 @@ export default function Form(props) {
       </label>
 
       <label>Working
-          <input type="radio"/>
+          <input 
+          type="radio"
+          name="workstatus"
+          onChange={onChange}
+          value='working'
+          checked={values.workstatus === 'working'}
+          />
       </label>
       <label>Not Working
-          <input type="radio"/>
+          <input 
+          type="radio"
+          name="workstatus"
+          onChange={onChange}
+          value='notworking'
+          checked={values.workstatus === 'notworking'}
+          />
       </label>
 
       <label>

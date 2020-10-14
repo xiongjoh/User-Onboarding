@@ -13,8 +13,12 @@ export default yup.object().shape({
     .string()
     .required('must have a password set')
     .min(8, "minimum password length must be 8 characters long"),
-    role: yup.string()
+    role: yup
+    .string()
     .oneOf(['student','tl','instructor','alumni'], "please select a role"),
+    workstatus: yup
+    .string()
+    .oneOf(['working', 'notworking'], 'please choose a work status'),
     tos: yup
     .boolean().oneOf([true], 'Terms of Service must be checked'),
 })

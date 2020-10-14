@@ -11,6 +11,7 @@ const initialFormValues = {
   email: '',
   password: '',
   role:'',
+  workstatus:'',
   tos: false,
 }
 
@@ -18,6 +19,7 @@ const initialFormErrors = {
   name:'',
   email:'',
   role:'',
+  workstatus:'',
   password:'',
 }
 
@@ -69,8 +71,9 @@ const submit = () => {
   const newUser = {
     name: formValues.name.trim(),
     email: formValues.email.trim(),
-    role: formValues.role.trim(),
+    role: formValues.role,
     password: formValues.password.trim(),
+    workstatus: formValues.workstatus,
   }
 
   postUser(newUser)
