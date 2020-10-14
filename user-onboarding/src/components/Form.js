@@ -68,6 +68,13 @@ export default function Form(props) {
           </select>
       </label>
 
+      <label>Working
+          <input type="radio"/>
+      </label>
+      <label>Not Working
+          <input type="radio"/>
+      </label>
+
       <label>
         Agree to Terms of Service
         <input 
