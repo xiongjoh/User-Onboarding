@@ -93,7 +93,8 @@ export default function Form(props) {
         <input 
         type="checkbox"
         name="tos"
-        checked={values.hiking}
+        checked={values.tos}
+        value={values.tos}
         onChange={onChange}
         />
       </label>
