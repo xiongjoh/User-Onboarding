@@ -27,6 +27,7 @@ describe('User App', () => {
         statusInput2().should('exist')
         tosInput().should('exist')
         sumbit().should('exist')
+        errors().should('exist')
     })
 
     describe('fill in text inputs', () => {
@@ -104,30 +105,30 @@ describe('User App', () => {
     describe('test validation messages', () => {
         it('test name validation', () => {
             nameInput().type('aa')
-            cy.contains(/minimum username length/)
+            errors().contains(/minimum username length/)
             nameInput().clear()
-            cy.contains(/required/)
+            errors().contains(/required/)
         })
         it('test email validation', () => {
             emailInput().type('124sfag')
-            cy.contains(/valid email/)
+            errors().contains(/valid email/)
             emailInput().clear()
-            cy.contains(/email is required/)
+            errors().contains(/email is required/)
         })
         it('test password validation', () => {
             passwordInput().type('215')
-            cy.contains(/must be 8 characters/)
+            errors().contains(/must be 8 characters/)
             passwordInput().clear()
-            cy.contains(/must have a password/)
+            errors().contains(/must have a password/)
         })
         it('test role validation', () => {
             roleInput().select('student')
             roleInput().select('')
-            cy.contains(/please select a role/)
+            errors().contains(/please select a role/)
         })
         it('test terms of service validation', () => {
             tosInput().click().click()
-            cy.contains(/must be checked/)
+            errors().contains(/must be checked/)
         })
     })
 })
